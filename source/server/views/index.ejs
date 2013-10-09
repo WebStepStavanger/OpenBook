@@ -3,17 +3,17 @@
   <head>
     <title>Open book</title>
 
-    <link rel="stylesheet" href="/stylesheets/style.css<%= cachebust %>" />
+    <link rel="stylesheet" href="/vendor/styles/style.css<%= cachebust %>" />
 
     <% if (reload) { %>
       <script src="/socket.io/socket.io.js"></script>
-      <script src="/javascripts/reload-client.js"></script>
+      <script src="/assets/reload-client.js"></script>
     <% } %>
 
     <% if (optimize) { %>
       <script src="/javascripts/main-built.js"></script>
     <% } else { %>
-      <script src="/javascripts/vendor/requirejs/require.js" data-main="/javascripts/main.js"></script>
+      <script src="/vendor/javascript/requirejs/require.js" data-main="/assets/main.js"></script>
     <% } %>
 
   </head>

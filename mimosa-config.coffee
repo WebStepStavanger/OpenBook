@@ -8,26 +8,14 @@
 
 exports.config = {
 
-  # minMimosaVersion:null   # The minimum Mimosa version that must be installed to use the
-                            # project. Defaults to null, which means Mimosa will not check
-                            # the version.  This is a no-nonsense way for big teams to ensure
-                            # everyone stays up to date with the blessed Mimosa version for a
-                            # project.
+  modules: ['lint', 'server', 'require', 'minify', 'live-reload', 'bower']
 
-  ###
-  The list of Mimosa modules to use for this application. The defaults (lint, server, require,
-  minify, live-reload, bower) come bundled with Mimosa and do not need to be installed. The
-  'mimosa-' that preceeds all Mimosa module names is assumed, however you can use it if you
-  want. If a module is listed here that Mimosa is unaware of, Mimosa will attempt to install it.
-  ###
-  # modules: ['lint', 'server', 'require', 'minify', 'live-reload', 'bower']
-
-  # watch:
-    # sourceDir: "assets"                # directory location of web assets, can be relative to
+  watch:
+    sourceDir: "source/client"           # directory location of web assets, can be relative to
                                          # the project root, or absolute
-    # compiledDir: "public"              # directory location of compiled web assets, can be
+    compiledDir: "build"          # directory location of compiled web assets, can be
                                          # relative to the project root, or absolute
-    # javascriptDir: "javascripts"       # Location of precompiled javascript (i.e.
+    javascriptDir: "assets"                 # Location of precompiled javascript (i.e.
                                          # coffeescript), must be relative to sourceDir
     # exclude: [/[/\\](\.|~)[^/\\]+$/]   # regexes or strings matching the files to be
                                          # ignored by mimosa, the default matches all sorts of
@@ -50,10 +38,10 @@ exports.config = {
     # interval: 100                      # Interval of file system polling.
     # binaryInterval: 300                # Interval of file system polling for binary files
 
-  # vendor:                              # settings for vendor assets
-    # javascripts: "javascripts/vendor"  # location, relative to the watch.sourceDir, of vendor
+  vendor:                              # settings for vendor assets
+    javascripts: "vendor/javascript"     # location, relative to the watch.sourceDir, of vendor
                                          # javascript assets. Unix style slashes please.
-    # stylesheets: "stylesheets/vendor"  # location, relative to the watch.sourceDir, of vendor
+    stylesheets: "vendor/styles"         # location, relative to the watch.sourceDir, of vendor
                                          # stylesheet assets. Unix style slashes please.
 	
 
@@ -195,7 +183,7 @@ exports.config = {
                                  # Mimosa will use server provided by path below
       # onePager: false          # Whether or not your app is a one page application. When set to
                                  # true, all routes will be pointed at index
-    path: 'server.js'      # valid when defaultServer.enabled: false, path to file for provided
+    path: 'source/server/server.js'      # valid when defaultServer.enabled: false, path to file for provided
                                  # server which must contain export startServer method that takes
                                  # an enriched mimosa-config object
     # port: 3000                 # port to start server on

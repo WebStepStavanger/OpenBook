@@ -1,6 +1,8 @@
 OpenBook
 ========
 
+(first, install Node.js)
+
 Download or Clone this repo
 
 &gt; npm install mimosa -g
