@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="openbook.main">
   <head>
     <title>Open book</title>
 
@@ -7,23 +7,52 @@
 
     <% if (reload) { %>
       <script src="/socket.io/socket.io.js"></script>
-      <script src="/assets/reload-client.js"></script>
+      <script src="/app/reload-client.js"></script>
     <% } %>
 
     <% if (optimize) { %>
       <script src="/javascripts/main-built.js"></script>
     <% } else { %>
-      <script src="/vendor/javascript/requirejs/require.js" data-main="/assets/main.js"></script>
+      <script src="vendor/javascript/requirejs/require.js" data-main="main"></script>
     <% } %>
-
+ 
   </head>
   <body>
 
-    <p>Welcome to an Open Book</p>
+    <p>Welcome to Open Book</p>
 
     <% if (optimize) { %>
     <p>Optimized mode.  You are getting a single RequireJS optimized JavaScript file which includes all the page dependencies.</p>
     <% } %>
+
+    <div ng-controller="main">
+        <ul ng-repeat="item in items"> 
+          
+          <li>
+            <a href="https://openbookdb.firebaseio.com/books/{{item.title}}/.json">
+              <span>{{item.title}}</span><span> ( by {{item.author}} )</span>
+            </a>
+          </li>
+          
+        </ul>
+     </div>
+
+    <!-- will move to requirejs -->
+    <script src="/vendor/javascript/angular/angular.js"></script>    
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="/vendor/javascript/angular-fire/angularFire.js"></script>
+
+   <script>
+    var app = angular.module("openbook.main", ["firebase"]);
+      
+    function main($scope, angularFire) {
+        $scope.items = [];
+        var ref = new Firebase("https://openbookdb.firebaseio.com/books");
+        angularFire(ref, $scope, "items");
+    };
+      
+  </script>
+
 
   </body>
 </html>
