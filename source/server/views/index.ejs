@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="openbook.main">
   <head>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png"/>
+  
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+  
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
     <title>Open book</title>
 
     <link rel="stylesheet" href="/vendor/styles/style.css<%= cachebust %>" />
@@ -22,20 +34,30 @@
     <p>Welcome to Open Book</p>
 
     <% if (optimize) { %>
-    <p>Optimized mode.  You are getting a single RequireJS optimized JavaScript file which includes all the page dependencies.</p>
+    <!--Optimized mode.  You are getting a single RequireJS optimized JavaScript file which includes all the page dependencies.-->
     <% } %>
 
-    <div ng-controller="main">
-        <ul ng-repeat="item in items"> 
-          
-          <li>
-            <a href="https://openbookdb.firebaseio.com/books/{{item.title}}/.json">
-              <span>{{item.title}}</span><span> ( by {{item.author}} )</span>
-            </a>
-          </li>
-          
-        </ul>
-     </div>
+
+
+
+    <div id="library">
+      <div ng-controller="main">
+          <ul ng-repeat="item in items"> 
+            
+            <li>
+              <a href="/read">
+                <span>{{item.title}}</span><span> ( by {{item.author}} )</span>
+              </a>
+            </li>
+            
+          </ul>
+       </div>
+    </div>
+
+
+
+
+
 
     <!-- will move to requirejs -->
     <script src="/vendor/javascript/angular/angular.js"></script>    
