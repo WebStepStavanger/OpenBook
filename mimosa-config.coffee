@@ -8,7 +8,7 @@
 
 exports.config = {
 
-  modules: ['lint', 'server', 'require', 'minify', 'live-reload', 'bower']
+  modules: ['lint', 'server', 'require', 'minify', 'live-reload', 'bower','testem-require']
 
   watch:
     sourceDir: "source/client"           # directory location of web assets, can be relative to

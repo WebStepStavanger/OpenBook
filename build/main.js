@@ -1,18 +1,16 @@
-
- 
-  require({
+	require({
     
-    urlArgs: "b=" + ((new Date()).getTime()),
-    paths: {
-    	angular: '/vendor/javascript/angular/angular',
-    	angularfire: '/vendor/javascript/angular-fire/angularfire'
-    },
-    shim: {
-    	//'angular' : {'exports' : 'angular'},
-    	//'angularfire' : { deps: ['angular'] }
-	}
+    urlArgs: "b=" + ((new Date()).getTime()),/*
+	    paths:{
+	    //angular: '/vendor/javascript/angular/angular',
+	    //angularfire: '/vendor/javascript/angular-fire/angularfire'
+	    },
+	    shim: {
+			//'angular' : {'exports' : 'angular'},
+			//'angularfire' : { deps: ['angular'] }
+		}*/
 
-  }, [], function() {
+	}, [], function() {
 
 	//angular.bootstrap(document , ['mainApp']);
 
