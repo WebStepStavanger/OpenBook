@@ -1,9 +1,6 @@
-define( function(){
 
-	describe('hello', function(){
-	  it('should say hello', function(){
-	    expect(hello()).toBe('hello world');
-	  });
-	});
-
-});
+describe('hello', function(){
+  it('should just say hello', function(){
+    'hello world'.should.equal('hello world');
+  });
+}); 

@@ -8,7 +8,7 @@
 
 exports.config = {
 
-  modules: ['lint', 'server', 'require', 'minify', 'live-reload', 'bower','testem-require']
+  modules: ['lint', 'server', 'require', 'minify', 'live-reload', 'bower', 'testem-require', 'web-package']
 
   watch:
     sourceDir: "source/client"           # directory location of web assets, can be relative to
@@ -197,17 +197,17 @@ exports.config = {
                                  # root of the project. If defaultServer.enabled is false it is
                                  # relative to the server.path setting above.	
 
-  # minify:                     # Configuration for non-require minification/compression via
+  minify:                     # Configuration for non-require minification/compression via
                                 # uglify using the --minify flag.
-    # exclude:[/\.min\./]       # List of string paths and regexes to match files to exclude
+    exclude:[/\/specs\/./]       # List of string paths and regexes to match files to exclude
                                 # when running minification. Any path with ".min." in its name,
                                 # like jquery.min.js, is assumed to already be minified and is
                                 # ignored by default. Paths can be relative to the
                                 # watch.compiledDir, or absolute.  Paths are to compiled files,
                                 # so '.js' rather than '.coffee'	
 
-  # lint:                      # settings for js, css linting/hinting
-    # exclude:[]               # array of strings or regexes that match files to not lint,
+  lint:                      # settings for js, css linting/hinting
+    exclude:[/.main.js/]               # array of strings or regexes that match files to not lint,
                                # strings are paths that can be relative to the watch.compiledDir
                                # or absolute
     # compiled:                # settings for compiled files
@@ -219,11 +219,11 @@ exports.config = {
     # vendor:                  # settings for vendor files
       # javascript: false      # fire jshint for copied vendor javascript files (like jquery)
       # css: false             # fire csslint for copied vendor css files (like bootstrap)
-    # rules:                   # All hints/lints come with defaults built in.  Here is where
+    rules:                   # All hints/lints come with defaults built in.  Here is where
                                # you'd override those defaults. Below is listed an example of an
                                # overridden default for each lint type, also listed, next to the
                                # lint types is the url to find the settings for overriding.
-      # jshintrc: ".jshintrc"  # This is the path, either relative to the root of the project or
+      jshintrc: ".jshintrc"  # This is the path, either relative to the root of the project or
                                # absolute, to a .jshintrc file. By default mimosa will look at
                                # the root of the project for this file. The file does not need to
                                # be present. If it is present, it must be valid JSON.
@@ -233,15 +233,15 @@ exports.config = {
       # css:                   # Settings: https://github.com/stubbornella/csslint/wiki/Rules
         # floats: false        # This is an example override, this is not a default	
 
-  # liveReload:                   # Configuration for live-reload
+  liveReload:                   # Configuration for live-reload
     # enabled:true                # Whether or not live-reload is enabled
-    # additionalDirs:["views"]    # Additional directories outside the watch.compiledDir
+    additionalDirs:["static","views"]    # Additional directories outside the watch.compiledDir
                                   # that you would like to have trigger a page refresh,
                                   # like, by default, static views. Is string path,
                                   # can be relative to project root, or absolute	
 
-  # require:                 # configuration for requirejs options.
-    # exclude:[]             # Regex or string paths. Paths can be absolute or relative to the
+  require:                 # configuration for requirejs options.
+    exclude:["*.spec.js"]             # Regex or string paths. Paths can be absolute or relative to the
                              # watch.javascriptDir. These files will be excluded from all
                              # require module functionality. That includes AMD verification and
                              # being considered a root level file to be optimized.
@@ -262,8 +262,8 @@ exports.config = {
       # enabled: true       # whether or not tracking is enabled
       # path: ".mimosa/require/tracking.json" # the path to the tracking file relative to the
                              # root of the project.
-    # verify:                # settings for requirejs path verification
-      # enabled: true        # Whether or not to perform verification
+    verify:                # settings for requirejs path verification
+      enabled: false        # Whether or not to perform verification
     # optimize :
       # inferConfig:true     # Mimosa figures out all you'd need for a simple r.js optimizer run.
                              # If you rather Mimosa not do that, set inferConfig to false and
@@ -347,5 +347,4 @@ exports.config = {
                                   # ['js', 'lib'] the output path would have "lib" and "js"
                                   # stripped. Feel free to suggest additions to this based on
                                   # your experience!
-
 }

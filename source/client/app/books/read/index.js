@@ -1,0 +1,3 @@
+function index3() {
+	// body...
+}
