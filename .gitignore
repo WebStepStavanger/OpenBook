@@ -24,6 +24,8 @@ npm-debug.log
 azure_error
 what
 *.sublime-workspace
+*.pub
+booknode
 
 # Output folder
 /build
