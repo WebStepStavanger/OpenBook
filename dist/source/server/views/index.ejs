@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="openbook.main">
+  <head>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png"/>
+  
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+  
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+    <title>Open book</title>
+
+    <link rel="stylesheet" href="/vendor/styles/style.css<%= cachebust %>" />
+
+    <% if (reload) { %>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/app/reload-client.js"></script>
+    <% } %>
+
+    <% if (optimize) { %>
+      <script src="/javascripts/main-built.js"></script>
+    <% } else { %>
+      <script src="vendor/javascript/requirejs/require.js" data-main="app/main"></script>
+    <% } %>
+ 
+  </head>
+  <body>
+
+    <p>Welcome to Open Book</p>
+
+    <% if (optimize) { %>
+    <!--Optimized mode.  You are getting a single RequireJS optimized JavaScript file which includes all the page dependencies.-->
+    <% } %>
+
+
+
+
+    <div id="library">
+      <div ng-controller="main">
+          <ul ng-repeat="item in items"> 
+            
+            <li>
+              <a href="/read">
+                <span>{{item.title}}</span><span> ( by {{item.author}} )</span>
+              </a>
+            </li>
+            
+          </ul>
+       </div>
+    </div>
+
+
+
+
+
+
+    <!-- will move to requirejs -->
+    <script src="/vendor/javascript/angular/angular.js"></script>    
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="/vendor/javascript/angular-fire/angularFire.js"></script>
+
+   <script>
+    var app = angular.module("openbook.main", ["firebase"]);
+      
+    function main($scope, angularFire) {
+        $scope.items = [];
+        var ref = new Firebase("https://openbookdb.firebaseio.com/books");
+        angularFire(ref, $scope, "items");
+    };
+      
+  </script>
+
+
+  </body>
+</html>

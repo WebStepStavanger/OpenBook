@@ -1,0 +1,21 @@
+{
+  "shims": {
+    "/app/main.js": null
+  },
+  "deps": {
+    "/app/main.js": []
+  },
+  "aliases": {
+    "/app/main.js": null
+  },
+  "mappings": {
+    "/app/main.js": null
+  },
+  "packages": {
+    "/app/main.js": null
+  },
+  "originalConfig": {},
+  "requireFiles": [
+    "/app/main.js"
+  ]
+}

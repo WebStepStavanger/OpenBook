@@ -29,7 +29,7 @@ booknode
 
 # Output folder
 /build
-/dist
+#/dist
 /.mimosa/require/tracking.json
 
 # Numerous always-ignore extensions

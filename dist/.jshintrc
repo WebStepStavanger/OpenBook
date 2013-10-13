@@ -1,0 +1,10 @@
+{
+  	"curly": false,
+	"eqeqeq": true,
+	"eqnull": true,
+	"browser": true,        
+	"smarttabs": true,
+	"laxcomma": true,
+	"-W099": true,
+	"-W033": true
+}

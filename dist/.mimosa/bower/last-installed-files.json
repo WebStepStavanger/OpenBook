@@ -1,0 +1,7 @@
+[
+  "source\\client\\vendor\\javascript\\firebase\\index.js",
+  "source\\client\\vendor\\javascript\\angular\\angular.js",
+  "source\\client\\vendor\\javascript\\requirejs\\require.js",
+  "source\\client\\vendor\\javascript\\angular-fire\\angularFire.js",
+  "source\\client\\vendor\\javascript\\angular-fire\\angularfire.min.js"
+]
