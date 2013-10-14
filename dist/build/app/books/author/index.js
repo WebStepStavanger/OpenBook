@@ -1,1 +1,3 @@
-function index1(){}
+function(){
+	
+}

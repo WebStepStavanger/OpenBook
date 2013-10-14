@@ -22,4 +22,4 @@ var read = function(config) {
   };
 };
 
-exports.reader = read;
+exports.read = read;
