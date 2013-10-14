@@ -7,7 +7,8 @@ var index = function(config) {
   var options = {
     reload:    config.liveReload.enabled,
     optimize:  config.isOptimize != null ? config.isOptimize : false,
-    cachebust: cachebust
+    cachebust: cachebust,
+    layout: false
   };
 
   // In the event plain html pages are being used, need to

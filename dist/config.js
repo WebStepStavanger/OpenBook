@@ -42,7 +42,6 @@ var config = {
       "compileWith": "ejs",
       "extension": "ejs",
       "path": [
-        "source",
         "server",
         "views"
       ]
