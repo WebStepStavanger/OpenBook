@@ -18,5 +18,6 @@ Socket-io notifies the browser.
 
 Find help with build, test and automation here http://mimosa.io/
 
+Latest (continuous) build can be accessed at http://booknode.herokuapp.com/
 
 <img src="https://www.codeship.io/projects/099fe850-1596-0131-ce90-2e55fe52bf37/status">
